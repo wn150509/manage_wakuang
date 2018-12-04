@@ -16,7 +16,7 @@ router.beforeEach((to, from, next) => {
     if(!role && to.path !== '/login'){
         next('/login');
     }else if(to.meta.permission){
-        // 如果是管理员权限则可进入，这里只是简单的模拟管理员权限而已
+        // 如果是管理员权限则可进入，这里只是简单的模拟管理员权限
         role === 'admin' ? next() : next('/403');
     }else{
         // 简单的判断IE10及以下不进入富文本编辑器，该组件不兼容
@@ -28,7 +28,7 @@ router.beforeEach((to, from, next) => {
             next();
         }
     }
-})
+});
 
 new Vue({
     router,

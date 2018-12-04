@@ -1,6 +1,7 @@
 <template>
     <div class="sidebar">
-        <el-menu class="sidebar-el-menu" :default-active="onRoutes" :collapse="collapse" background-color="#324157"
+        <el-menu class="sidebar-el-menu" :default-active="onRoutes"
+                 :collapse="collapse" background-color="#324157"
             text-color="#bfcbd9" active-text-color="#20a0ff" unique-opened router>
             <template v-for="item in items">
                 <template v-if="item.subs">
@@ -79,14 +80,19 @@
                         title: '拖拽列表'
                     },
                     {
-                        icon: 'el-icon-warning',
-                        index: 'permission',
-                        title: '权限测试'
+                        icon: 'el-icon-document',
+                        index: 'step',
+                        title: '步骤条'
                     },
                     {
                         icon: 'el-icon-error',
                         index: '404',
                         title: '404页面'
+                    },
+                    {
+                        icon:'el-icon-date',
+                        index:'date',
+                        title:'日期选择器'
                     }
                 ]
             }

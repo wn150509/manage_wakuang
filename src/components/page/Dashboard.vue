@@ -6,27 +6,27 @@
                     <el-col>
                         <el-card shadow="hover" class="mgb20">
                             <div class="user-info">
-                                <img src="static/img/img.jpg" class="user-avator" alt="">
+                                <img src="static/img/101.jpg" class="user-avator" alt="">
                                 <div class="user-info-cont">
                                     <div class="user-info-name">{{name}}</div>
                                     <div>{{role}}</div>
                                 </div>
                             </div>
-                            <div class="user-info-list">上次登录时间：<span>2018-01-01</span></div>
-                            <div class="user-info-list">上次登录地点：<span>东莞</span></div>
+                            <div class="user-info-list">上次登录时间：<span>2018-06-01</span></div>
+                            <div class="user-info-list">上次登录地点：<span>南京</span></div>
                         </el-card>
                         <el-card shadow="hover">
                             <div slot="header" class="clearfix">
-                                <span>语言详情</span>
+                                <span>热门班课</span>
                             </div>
-                            Vue
-                            <el-progress :percentage="57.2" color="#42b983"></el-progress>
-                            JavaScript
-                            <el-progress :percentage="29.8" color="#f1e05a"></el-progress>
+                            Spring
+                            <el-progress :percentage="77.2" color="#42b983"></el-progress>
+                            VUE
+                            <el-progress :percentage="69.8" color="#f1e05a"></el-progress>
                             CSS
-                            <el-progress :percentage="11.9"></el-progress>
+                            <el-progress :percentage="31.9"></el-progress>
                             HTML
-                            <el-progress :percentage="1.1" color="#f56c6c"></el-progress>
+                            <el-progress :percentage="21.1" color="#f56c6c"></el-progress>
                         </el-card>
                     </el-col>
                 </el-row>
@@ -39,7 +39,7 @@
                                 <i class="el-icon-view grid-con-icon"></i>
                                 <div class="grid-cont-right">
                                     <div class="grid-num">1234</div>
-                                    <div>用户访问量</div>
+                                    <div>注册用户数</div>
                                 </div>
                             </div>
                         </el-card>
@@ -50,7 +50,7 @@
                                 <i class="el-icon-message grid-con-icon"></i>
                                 <div class="grid-cont-right">
                                     <div class="grid-num">321</div>
-                                    <div>系统消息</div>
+                                    <div>班课数</div>
                                 </div>
                             </div>
                         </el-card>
@@ -61,7 +61,7 @@
                                 <i class="el-icon-goods grid-con-icon"></i>
                                 <div class="grid-cont-right">
                                     <div class="grid-num">5000</div>
-                                    <div>数量</div>
+                                    <div>资源数量</div>
                                 </div>
                             </div>
                         </el-card>
@@ -80,7 +80,9 @@
                         </el-table-column>
                         <el-table-column>
                             <template slot-scope="scope">
-                                <div class="todo-item" :class="{'todo-item-del': scope.row.status}">{{scope.row.title}}</div>
+                                <div class="todo-item" :class="{'todo-item-del': scope.row.status}">
+                                    {{scope.row.title}}
+                                </div>
                             </template>
                         </el-table-column>
                         <el-table-column width="60">
@@ -104,7 +106,7 @@
                 name: localStorage.getItem('ms_username'),
                 todoList: [
                     {
-                        title: '今天要修复100个bug',
+                        title: '今天要写1000行代码',
                         status: false,
                     },
                     {
@@ -112,7 +114,10 @@
                         status: false,
                     },
                     {
-                        title: '今天要写100行代码加几个bug吧',
+                        title: '今天要修复100个bug',
+                        status: false,
+                    }, {
+                        title: '今天要修复100个bug',
                         status: false,
                     }, {
                         title: '今天要修复100个bug',
@@ -123,7 +128,7 @@
                         status: true,
                     },
                     {
-                        title: '今天要写100行代码加几个bug吧',
+                        title: '今天要修复100个bug',
                         status: true,
                     }
                 ]

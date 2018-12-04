@@ -27,7 +27,6 @@
             </el-steps>
         </div>
     </div>
-    </div>
 </template>
 
 <script>

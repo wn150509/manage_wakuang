@@ -1,8 +1,8 @@
 {
-  "name": "vue-manage-system",
+  "name": "manage-system",
   "version": "3.1.0",
-  "description": "基于Vue.js 2.x系列 + element-ui 内容管理系统解决方案",
-  "author": "lin-xin <2981207131@qq.com>",
+  "description": "VUE+Element的后台管理系统",
+  "author": "taoranran",
   "private": true,
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
