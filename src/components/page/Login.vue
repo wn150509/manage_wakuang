@@ -57,6 +57,8 @@
         position: relative;
         width:100%;
         height:100%;
+        background-image: url(../../assets/login-bg.jpg);
+        background-size: 100%;
     }
     .ms-title{
         position: absolute;
@@ -65,7 +67,7 @@
         margin-top: -230px;
         text-align: center;
         font-size:30px;
-        color: #fff;
+        color: #606266;
 
     }
     .ms-login{

@@ -181,7 +181,6 @@
             }
         }
     }
-
 </script>
 
 <style scoped>
@@ -202,3 +201,177 @@
         text-align: center
     }
 </style>
+
+<!--<template>-->
+    <!--<div>-->
+        <!--&lt;!&ndash;<div class="handle-box">&ndash;&gt;-->
+            <!--&lt;!&ndash;<el-button type="success" @click="addOneMsg">增加一行</el-button>&ndash;&gt;-->
+        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+        <!--&lt;!&ndash;<el-table :data="tableData" class="tb-edit" style="width: 100%"&ndash;&gt;-->
+                  <!--&lt;!&ndash;highlight-current-row @row-click="handleCurrentChange">&ndash;&gt;-->
+            <!--&lt;!&ndash;<el-table-column label="日期" width="180">&ndash;&gt;-->
+                <!--&lt;!&ndash;<template slot-scope="scope">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<el-input size="small" v-model="scope.row.date" placeholder="请输入内容" @change="handleEdit(scope.$index, scope.row)"></el-input>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<span>{{scope.row.date}}</span>&ndash;&gt;-->
+                <!--&lt;!&ndash;</template>&ndash;&gt;-->
+            <!--&lt;!&ndash;</el-table-column>&ndash;&gt;-->
+            <!--&lt;!&ndash;<el-table-column prop="" label="排版">&ndash;&gt;-->
+            <!--&lt;!&ndash;</el-table-column>&ndash;&gt;-->
+            <!--&lt;!&ndash;<el-table-column label="姓名" width="180">&ndash;&gt;-->
+                <!--&lt;!&ndash;<template slot-scope="scope">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<el-input size="small" v-model="scope.row.name" placeholder="请输入内容" @change="handleEdit(scope.$index, scope.row)"></el-input> <span>{{scope.row.name}}</span>&ndash;&gt;-->
+                <!--&lt;!&ndash;</template>&ndash;&gt;-->
+            <!--&lt;!&ndash;</el-table-column>&ndash;&gt;-->
+            <!--&lt;!&ndash;<el-table-column prop="address" label="地址">&ndash;&gt;-->
+                <!--&lt;!&ndash;<template slot-scope="scope">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<el-input size="small" v-model="scope.row.address" placeholder="请输入内容" @change="handleEdit(scope.$index, scope.row)"></el-input> <span>{{scope.row.address}}</span>&ndash;&gt;-->
+                <!--&lt;!&ndash;</template>&ndash;&gt;-->
+            <!--&lt;!&ndash;</el-table-column>&ndash;&gt;-->
+        <!--&lt;!&ndash;</el-table>&ndash;&gt;-->
+        <!--&lt;!&ndash;<br>数据:{{tableData}}&ndash;&gt;-->
+
+        <!--<el-form-item ref="videocontentvideo" style="display:none;">-->
+            <!--<img :src="imgurl">-->
+            <!--<video width="320" height="240" controls id="upvideo">-->
+            <!--</video>-->
+            <!--<img :src="modlevidel" />-->
+        <!--</el-form-item>-->
+
+        <!--<el-form-item class="upload-demo-content" v-show="formLabelAlign.type===2">-->
+            <!--<el-upload class="upload-demo"-->
+                       <!--:limit="1"-->
+                       <!--:on-exceed="exceedhandle" drag-->
+                       <!--:file-list="filsListArray"-->
+                       <!--:action="configuploadurl"-->
+                       <!--:on-success="successuploadhandle"-->
+                       <!--accept="video"-->
+                       <!--name="fileList"-->
+                       <!--:before-upload="beforeUploadVideo">-->
+                <!--<i class="el-icon-upload"></i>-->
+                <!--<div class="el-upload__text">将视频文件拖到此处，或-->
+                    <!--<em>点击上传</em>-->
+                <!--</div>-->
+                <!--<div class="el-upload__tip" slot="tip"></div>-->
+            <!--</el-upload>-->
+        <!--</el-form-item>-->
+
+    <!--</div>-->
+<!--</template>-->
+<!--<script>-->
+    <!--export default {-->
+        <!--data(){-->
+            <!--return{-->
+                <!--tableData: [{-->
+                    <!--date: '2016-05-02',-->
+                    <!--name: '王小虎',-->
+                    <!--address: '上海市普陀区金沙江路 1518 弄'-->
+                <!--}, {-->
+                    <!--date: '2016-05-04',-->
+                    <!--name: '王小虎',-->
+                    <!--address: '上海市普陀区金沙江路 1517 弄'-->
+                <!--}, {-->
+                    <!--date: '2016-05-01',-->
+                    <!--name: '王小虎',-->
+                    <!--address: '上海市普陀区金沙江路 1519 弄'-->
+                <!--}, {-->
+                    <!--date: '2016-05-03',-->
+                    <!--name: '王小虎',-->
+                    <!--address: '上海市普陀区金沙江路 1516 弄'-->
+                <!--}]-->
+            <!--}-->
+        <!--},-->
+        <!--methods: {-->
+            <!--handleCurrentChange(row, event, column) {-->
+                <!--console.log(row, event, column, event.currentTarget)-->
+            <!--},-->
+            <!--handleEdit(index, row) {-->
+                <!--console.log(index, row);-->
+            <!--},-->
+            <!--addOneMsg(){-->
+                <!--this.tableData.push({-->
+                    <!--date: '',-->
+                    <!--name: '',-->
+                    <!--address: ''-->
+                <!--})-->
+            <!--},-->
+            <!--successuploadhandle(response, file, fileList) {-->
+                <!--this.formLabelAlign.video = this.modlevidel =-->
+                    <!--response.data.fileList[0].url;-->
+                <!--this.filsListArray = [];-->
+                <!--this.filsListArray.push({-->
+                    <!--name: this.formLabelAlign.video,-->
+                    <!--url: this.formLabelAlign.video-->
+                <!--});-->
+                <!--this.findvideocover();-->
+            <!--},-->
+            <!--exceedhandle(files, fileList) {-->
+                <!--this.$message.error("只能上传一个视频额");-->
+            <!--},-->
+            <!--beforeUploadVideo(file) {-->
+                <!--if (-->
+                    <!--[-->
+                        <!--"video/mp4",-->
+                        <!--"video/ogg",-->
+                        <!--"video/flv",-->
+                        <!--"video/avi",-->
+                        <!--"video/wmv",-->
+                        <!--"video/rmvb"-->
+                    <!--].indexOf(file.type) === -1-->
+                <!--) {-->
+                    <!--this.$message.error("请上传正确的视频格式");-->
+                    <!--return false;-->
+                <!--}-->
+            <!--},-->
+            <!--findvideocover() {-->
+                <!--let _this = this;-->
+                <!--this.$nextTick(() => {-->
+                    <!--let video = document.getElementById("upvideo");-->
+                    <!--let source = document.createElement("source");-->
+                    <!--// source.src = require("../../assets/5b086751dbb7af1ea8fa8d05e66fe5c3.mp4");this.formLabelAlign.video-->
+                    <!--source.src = this.formLabelAlign.video;-->
+                    <!--source.type = "video/mp4";-->
+                    <!--video.appendChild(source);-->
+                    <!--video.addEventListener("loadeddata", function() {-->
+                        <!--var canvas = document.createElement("canvas");-->
+                        <!--canvas.width = "320";-->
+                        <!--canvas.height = "320";-->
+                        <!--canvas-->
+                            <!--.getContext("2d")-->
+                            <!--.drawImage(video, 0, 0, canvas.width, canvas.width);-->
+                        <!--var img = document.createElement("img");-->
+                        <!--let imgsrc = canvas.toDataURL("image/png");-->
+                        <!--_this.Videoframehandle(imgsrc.split(",")[1]);-->
+                    <!--});-->
+                <!--});-->
+            <!--},-->
+            <!--showvideohandle() {-->
+                <!--this.$alert(-->
+                    <!--`<video width="320" height="240" controls>-->
+                      <!--<source src="${-->
+                        <!--this.filsListArray[0].url-->
+                        <!--}"  type="video/mp4">-->
+                      <!--您的浏览器不支持 HTML5 video 标签。-->
+                    <!--</video>`,-->
+                    <!--"视频预览",-->
+                    <!--{-->
+                        <!--dangerouslyUseHTMLString: true-->
+                    <!--}-->
+                <!--);-->
+            <!--},-->
+        <!--}-->
+    <!--}-->
+<!--</script>-->
+<!--<style>-->
+    <!--.tb-edit .el-input {-->
+        <!--display: none-->
+    <!--}-->
+    <!--.tb-edit .current-row .el-input {-->
+        <!--display: block-->
+    <!--}-->
+    <!--.tb-edit .current-row .el-input+span {-->
+        <!--display: none-->
+    <!--}-->
+    <!--.handle-box{-->
+        <!--margin-bottom: 20px;-->
+    <!--}-->
+<!--</style>-->
