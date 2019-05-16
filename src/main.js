@@ -3,12 +3,17 @@ import App from './App';
 import router from './router';
 import axios from 'axios';
 import ElementUI from 'element-ui';
-import 'element-ui/lib/theme-chalk/index.css';    // 默认主题
-// import '../static/css/theme-green/index.css';       // 浅绿色主题
+// import 'element-ui/lib/theme-chalk/index.css';    // 默认主题
+import '../static/css/theme-green/index.css';       // 浅绿色主题
 import "babel-polyfill";
+import $ from 'jquery';
+import echarts from 'echarts' //引入echarts
+Vue.prototype.$echarts = echarts; //引入组件
 
 Vue.use(ElementUI, { size: 'small' });
 Vue.prototype.$axios = axios;
+Vue.prototype.$baseUrl = 'http://39.100.78.194/api/';
+Vue.use($);
 
 //使用钩子函数对路由进行权限跳转
 router.beforeEach((to, from, next) => {

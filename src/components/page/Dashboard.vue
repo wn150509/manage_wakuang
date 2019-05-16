@@ -1,142 +1,139 @@
 <template>
     <div>
-        <el-row :gutter="20">
+        <el-row :gutter="24" class="mgb20">
             <el-col :span="8">
-                <el-row>
-                    <el-col>
-                        <el-card shadow="hover" class="mgb20">
-                            <div class="user-info">
-                                <img src="static/img/101.jpg" class="user-avator" alt="">
-                                <div class="user-info-cont">
-                                    <div class="user-info-name">{{name}}</div>
-                                    <div>{{role}}</div>
-                                </div>
-                            </div>
-                            <div class="user-info-list">上次登录时间：<span>2018-06-01</span></div>
-                            <div class="user-info-list">上次登录地点：<span>南京</span></div>
-                        </el-card>
-                        <el-card shadow="hover">
-                            <div slot="header" class="clearfix">
-                                <span>热门班课</span>
-                            </div>
-                            Spring
-                            <el-progress :percentage="77.2" color="#42b983"></el-progress>
-                            VUE
-                            <el-progress :percentage="69.8" color="#f1e05a"></el-progress>
-                            CSS
-                            <el-progress :percentage="31.9"></el-progress>
-                            HTML
-                            <el-progress :percentage="21.1" color="#f56c6c"></el-progress>
-                        </el-card>
-                    </el-col>
-                </el-row>
-            </el-col>
-            <el-col :span="16">
-                <el-row :gutter="20" class="mgb20">
-                    <el-col :span="8">
-                        <el-card shadow="hover" :body-style="{padding: '0px'}">
-                            <div class="grid-content grid-con-1">
-                                <i class="el-icon-view grid-con-icon"></i>
-                                <div class="grid-cont-right">
-                                    <div class="grid-num">1234</div>
-                                    <div>注册用户数</div>
-                                </div>
-                            </div>
-                        </el-card>
-                    </el-col>
-                    <el-col :span="8">
-                        <el-card shadow="hover" :body-style="{padding: '0px'}">
-                            <div class="grid-content grid-con-2">
-                                <i class="el-icon-message grid-con-icon"></i>
-                                <div class="grid-cont-right">
-                                    <div class="grid-num">321</div>
-                                    <div>班课数</div>
-                                </div>
-                            </div>
-                        </el-card>
-                    </el-col>
-                    <el-col :span="8">
-                        <el-card shadow="hover" :body-style="{padding: '0px'}">
-                            <div class="grid-content grid-con-3">
-                                <i class="el-icon-goods grid-con-icon"></i>
-                                <div class="grid-cont-right">
-                                    <div class="grid-num">5000</div>
-                                    <div>资源数量</div>
-                                </div>
-                            </div>
-                        </el-card>
-                    </el-col>
-                </el-row>
-                <el-card shadow="hover" :body-style="{ height: '304px'}">
-                    <div slot="header" class="clearfix">
-                        <span>待办事项</span>
-                        <el-button style="float: right; padding: 3px 0" type="text">添加</el-button>
+                <el-card shadow="hover" class="mgb20">
+                    <div class="user-info">
+                        <img :src="user.userAvatar" class="user-avator">
+                        <div class="user-info-cont">
+                            <div class="user-name">{{name}}</div>
+                            <div>{{role}}</div>
+                        </div>
                     </div>
-                    <el-table :data="todoList" :show-header="false" height="304" style="width: 100%;font-size:14px;">
-                        <el-table-column width="40">
-                            <template slot-scope="scope">
-                                <el-checkbox v-model="scope.row.status"></el-checkbox>
-                            </template>
-                        </el-table-column>
-                        <el-table-column>
-                            <template slot-scope="scope">
-                                <div class="todo-item" :class="{'todo-item-del': scope.row.status}">
-                                    {{scope.row.title}}
-                                </div>
-                            </template>
-                        </el-table-column>
-                        <el-table-column width="60">
-                            <template slot-scope="scope">
-                                <i class="el-icon-edit"></i>
-                                <i class="el-icon-delete"></i>
-                            </template>
-                        </el-table-column>
-                    </el-table>
+                    <span>所在地：</span><span>{{location.basic.cnty}}  {{location.basic.admin_area}}  {{location.basic.location}}&nbsp;&nbsp;&nbsp;&nbsp;{{location.now.cond_txt}}</span>
                 </el-card>
-
+            </el-col>
+            <el-row :span="18">
+                <el-col :span="5">
+                    <el-card shadow="hover" :body-style="{padding: '15px'}">
+                        <div class="grid-content grid-con-1">
+                            <i class="el-icon-view grid-con-icon"></i>
+                            <div class="grid-cont-right">
+                                <div class="grid-num">{{homeCount.userCount}}</div>
+                                <div>注册用户总数</div>
+                            </div>
+                        </div>
+                    </el-card>
+                </el-col>
+                <el-col :span="5">
+                    <el-card shadow="hover" :body-style="{padding: '15px'}">
+                        <div class="grid-content grid-con-2">
+                            <i class="el-icon-message grid-con-icon"></i>
+                            <div class="grid-cont-right">
+                                <div class="grid-num">{{homeCount.pinsCount}}</div>
+                                <div>发布沸点总数</div>
+                            </div>
+                        </div>
+                    </el-card>
+                </el-col>
+                <el-col :span="5">
+                    <el-card shadow="hover" :body-style="{padding: '15px'}">
+                        <div class="grid-content grid-con-3">
+                            <i class="el-icon-tickets grid-con-icon"></i>
+                            <div class="grid-cont-right">
+                                <div class="grid-num">{{homeCount.articlesCount}}</div>
+                                <div>发布文章总数</div>
+                            </div>
+                        </div>
+                    </el-card>
+                </el-col>
+            </el-row>
+        </el-row>
+        <el-row :gutter="20">
+            <el-col :span="12">
+                <el-card shadow="hover">
+                <div slot="header" class="clearfix">
+                <span>标签中文章占比</span>
+                </div>
+                    <schart :canvasId="canvasId1" :type="type1" :data="data1"></schart>
+                </el-card>
+            </el-col>
+            <el-col :span="12">
+                <el-card shadow="hover">
+                    <div slot="header" class="clearfix">
+                        <span>话题中沸点占比</span>
+                    </div>
+                    <schart :canvasId="canvasId2" :type="type2" :data="data2"></schart>
+                </el-card>
             </el-col>
         </el-row>
     </div>
 </template>
 
 <script>
+    import Schart from 'vue-schart';
     export default {
         data() {
             return {
+                user:JSON.parse(localStorage.getItem('user')),
                 name: localStorage.getItem('ms_username'),
-                todoList: [
-                    {
-                        title: '今天要写1000行代码',
-                        status: false,
-                    },
-                    {
-                        title: '今天要修复100个bug',
-                        status: false,
-                    },
-                    {
-                        title: '今天要修复100个bug',
-                        status: false,
-                    }, {
-                        title: '今天要修复100个bug',
-                        status: false,
-                    }, {
-                        title: '今天要修复100个bug',
-                        status: false,
-                    },
-                    {
-                        title: '今天要修复100个bug',
-                        status: true,
-                    },
-                    {
-                        title: '今天要修复100个bug',
-                        status: true,
-                    }
-                ]
+                location:'',
+                homeCount:{},
+                canvasId1: 'myCanvas1',
+                type1: 'pie',
+                data1: [{name:'',value:''}],
+                canvasId2: 'myCanvas2',
+                type2: 'bar',
+                data2: [{name:'',value:''}],
+            }
+        },
+        components:{
+            Schart
+        },
+        created(){
+            this.getTopicData();
+            this.getLabelData();
+            this.getCount();
+            this.getLocation();
+        },
+        methods:{
+            getLocation(){
+                var that=this;
+                this.$axios
+                    .get("https://free-api.heweather.com/s6/weather?location=auto_ip&key=a46fd5c4f1b54fda9ee71ba6711f09cd")
+                    .then(function (res) {
+                        that.location=res.data.HeWeather6[0];
+                        console.log(res.data.HeWeather6[0])
+                    });
+            },
+            getCount(){
+                var that=this;
+                this.$axios
+                    .get(this.$baseUrl+"/manage/homeCount")
+                    .then(function (res) {
+                        that.homeCount=res.data.data;
+                    })
+            },
+            getTopicData(){
+                var that=this;
+                this.$axios
+                    .get(this.$baseUrl+"/manage/topicPin")
+                    .then(function (res) {
+                        that.data2=res.data.data;
+                    })
+            },
+            getLabelData(){
+                var that=this;
+                this.$axios
+                    .get(this.$baseUrl+"/manage/labelArticle")
+                    .then(function (res) {
+                        that.data1=res.data.data;
+                    })
             }
         },
         computed: {
             role() {
-                return this.name === 'admin' ? '超级管理员' : '普通用户';
+                return this.user.email === 'admin' ? '超级管理员' : '普通用户';
             }
         }
     }
@@ -145,10 +142,6 @@
 
 
 <style scoped>
-    .el-row {
-        margin-bottom: 20px;
-    }
-
     .grid-content {
         display: flex;
         align-items: center;
@@ -189,7 +182,7 @@
     }
 
     .grid-con-2 .grid-num {
-        color: rgb(45, 140, 240);
+        color: rgb(100, 213, 114);
     }
 
     .grid-con-3 .grid-con-icon {
@@ -207,7 +200,9 @@
         border-bottom: 2px solid #ccc;
         margin-bottom: 20px;
     }
-
+    .user-name{
+        font-size: 10px;
+    }
     .user-avator {
         width: 120px;
         height: 120px;
@@ -225,13 +220,6 @@
         font-size: 30px;
         color: #222;
     }
-
-    .user-info-list {
-        font-size: 14px;
-        color: #999;
-        line-height: 25px;
-    }
-
     .user-info-list span {
         margin-left: 70px;
     }
@@ -242,11 +230,6 @@
 
     .todo-item {
         font-size: 14px;
-    }
-
-    .todo-item-del {
-        text-decoration: line-through;
-        color: #999;
     }
 
 </style>

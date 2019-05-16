@@ -41,61 +41,18 @@
                     {
                         icon: 'el-icon-tickets',
                         index: 'table',
-                        title: '基础表格'
+                        title: '话题管理'
                     },
                     {
                         icon: 'el-icon-message',
                         index: 'tabs',
-                        title: 'tab选项卡'
+                        title: '标签管理'
                     },
-                    {
-                        icon: 'el-icon-date',
-                        index: '3',
-                        title: '表单相关',
-                        subs: [
-                            {
-                                index: 'form',
-                                title: '基本表单'
-                            },
-                            {
-                                index: 'editor',
-                                title: '富文本编辑器'
-                            },
-                            {
-                                index: 'markdown',
-                                title: 'markdown编辑器'
-                            },
-                            {
-                                index: 'upload',
-                                title: '文件上传'
-                            }
-                        ]
-                    },
-                    {
-                        icon: 'el-icon-star-on',
-                        index: 'charts',
-                        title: 'schart图表'
-                    },
-                    {
-                        icon: 'el-icon-rank',
-                        index: 'drag',
-                        title: '拖拽列表'
-                    },
-                    {
-                        icon: 'el-icon-document',
-                        index: 'step',
-                        title: '步骤条'
-                    },
-                    {
-                        icon: 'el-icon-error',
-                        index: '404',
-                        title: '404页面'
-                    },
-                    {
-                        icon:'el-icon-date',
-                        index:'date',
-                        title:'日期选择器'
-                    }
+                    // {
+                    //     icon: 'el-icon-star-on',
+                    //     index: 'charts',
+                    //     title: '用户管理'
+                    // }
                 ]
             }
         },

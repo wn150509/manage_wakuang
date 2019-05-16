@@ -38,10 +38,22 @@
         },
         methods: {
             submitForm(formName) {
+                var that = this;
                 this.$refs[formName].validate((valid) => {
                     if (valid) {
-                        localStorage.setItem('ms_username',this.ruleForm.username);
-                        this.$router.push('/');
+                        that.$axios.post(that.$baseUrl+'user/sign_in',
+                            {"email": that.ruleForm.username,"password": that.ruleForm.password}).then((res) => {
+                            if(res.data.data) {
+                                localStorage.setItem('ms_username', res.data.data.userName);
+                                localStorage.setItem('user',JSON.stringify(res.data.data));
+                                that.$router.push('/');
+                            }
+                            else
+                            {
+                                that.$message.error("账号密码错误！")
+                            }
+                        })
+
                     } else {
                         console.log('error submit!!');
                         return false;

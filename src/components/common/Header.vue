@@ -4,7 +4,7 @@
         <div class="collapse-btn" @click="collapseChage">
             <i class="el-icon-menu"></i>
         </div>
-        <div class="logo">云班课后台管理系统</div>
+        <div class="logo">挖矿后台管理系统</div>
         <div class="header-right">
             <div class="header-user-con">
                 <!-- 全屏显示 -->
@@ -13,17 +13,8 @@
                         <i class="el-icon-rank"></i>
                     </el-tooltip>
                 </div>
-                <!-- 消息中心 -->
-                <div class="btn-bell">
-                    <el-tooltip effect="dark" :content="message?`有${message}条未读消息`:`消息中心`" placement="bottom">
-                        <router-link to="/tabs">
-                            <i class="el-icon-bell"></i>
-                        </router-link>
-                    </el-tooltip>
-                    <span class="btn-bell-badge" v-if="message"></span>
-                </div>
                 <!-- 用户头像 -->
-                <div class="user-avator"><img src="static/img/101.jpg"></div>
+                <div class="user-avator"><img :src="user.userAvatar"></div>
                 <!-- 用户名下拉菜单 -->
                 <el-dropdown class="user-name" trigger="click" @command="handleCommand">
                     <span class="el-dropdown-link">
@@ -45,6 +36,7 @@
     export default {
         data() {
             return {
+                user:JSON.parse(localStorage.getItem('user')),
                 collapse: false,
                 fullscreen: false,
                 name: 'taoranran',
